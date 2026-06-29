@@ -1,108 +1,157 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="lvy5pYVpJ3RVCFkrN69KbO6glg1OAmgsFa6Nae00_CI" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GAMBAR KEREN</title>
+
   <style>
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
+      font-family: Arial, sans-serif;
     }
 
     body {
       min-height: 100vh;
-      background: #080b34;
-      font-family: Arial, Helvetica, sans-serif;
-      color: #ffffff;
+      background:
+        radial-gradient(circle at 15% 20%, rgba(255, 200, 0, 0.14), transparent 22%),
+        radial-gradient(circle at 85% 18%, rgba(255, 170, 0, 0.12), transparent 24%),
+        radial-gradient(circle at 20% 80%, rgba(255, 120, 0, 0.10), transparent 22%),
+        radial-gradient(circle at 80% 75%, rgba(255, 215, 0, 0.10), transparent 24%),
+        radial-gradient(circle at 50% 50%, rgba(255, 190, 0, 0.08), transparent 30%),
+        linear-gradient(180deg, #060606 0%, #000000 45%, #070707 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      position: relative;
     }
 
-    .page {
-      width: 100%;
-      padding: 20px 16px 27px;
+    /* particle seluruh background */
+    body::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        radial-gradient(circle, rgba(255, 215, 0, 0.22) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px),
+        radial-gradient(circle, rgba(255, 180, 0, 0.10) 1.5px, transparent 1.5px);
+      background-size: 90px 90px, 140px 140px, 220px 220px;
+      background-position: 0 0, 40px 60px, 100px 120px;
+      animation: particlesMove 28s linear infinite;
+      opacity: 0.45;
+      pointer-events: none;
+    }
+
+    /* vignette biar pinggir tetap dark */
+    body::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at center, transparent 35%, rgba(0, 0, 0, 0.55) 75%, rgba(0, 0, 0, 0.9) 100%);
+      pointer-events: none;
+    }
+
+    @keyframes particlesMove {
+      from {
+        background-position: 0 0, 40px 60px, 100px 120px;
+      }
+      to {
+        background-position: 220px 180px, -180px 160px, 140px -120px;
+      }
     }
 
     .container {
-      max-width: 1140px;
-      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      padding: 20px;
     }
 
-    .banner {
-      width: 100%;
-      display: block;
-      border: none;
+    .top-image {
+      display: inline-block;
+      margin-bottom: 35px;
     }
 
-    .link-wrapper {
-      margin-top: 112px;
-    }
-
-    .btn-link {
-      width: 100%;
-      height: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      color: #ffffff;
-      font-size: 18px;
-      font-weight: 700;
-      border-radius: 4px;
-      border: 2px solid #ff1111;
-      box-shadow: 0 0 6px rgba(255, 0, 0, 0.45);
+    .top-image img {
+      width: 300px;
+      max-width: 85%;
+      border-radius: 14px;
       transition: 0.25s ease;
+      filter: drop-shadow(0 0 18px rgba(255, 196, 0, 0.28));
     }
 
-    .btn-link:hover {
-      transform: translateY(-2px);
-      filter: brightness(1.1);
+    .top-image img:hover {
+      transform: scale(1.03);
+      opacity: 0.95;
+      filter: drop-shadow(0 0 26px rgba(255, 196, 0, 0.45));
     }
 
-    .btn-dark {
-      background: #1d2839;
+    .button-wrapper {
+      display: flex;
+      gap: 28px;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
     }
 
-    .btn-red {
-      background: #e31318;
-      margin-top: 30px;
+    .btn {
+      width: 135px;
+      height: 46px;
+      border-radius: 15px;
+      background: #ffd400;
+      color: #111;
+      border: 1.5px solid #ffd400;
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 700;
+      letter-spacing: 0.5px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: all 0.25s ease;
+      box-shadow: 0 0 10px rgba(255, 212, 0, 0.20);
     }
 
-    @media (max-width: 768px) {
-      .page {
-        padding: 15px 10px 22px;
+    .btn:hover {
+      background: #050505;
+      color: #ffd400;
+      border: 1.5px solid #b99200;
+      box-shadow: 0 0 12px rgba(255, 212, 0, 0.28);
+    }
+
+    @media (max-width: 600px) {
+      .top-image img {
+        width: 235px;
       }
 
-      .link-wrapper {
-        margin-top: 60px;
+      .button-wrapper {
+        gap: 18px;
       }
 
-      .btn-link {
-        height: 48px;
-        font-size: 16px;
-      }
-    }
-
-    @media (max-width: 480px) {
-      .link-wrapper {
-        margin-top: 38px;
-      }
-
-      .btn-link {
-        height: 46px;
-        font-size: 15px;
+      .btn {
+        width: 115px;
+        height: 42px;
+        font-size: 14px;
       }
     }
   </style>
 </head>
 <body>
-  <main class="page">
-    <section class="container">
-  <a href="https://mpotwin.com/register/JG0NRLDW" target="_blank">
-    <img src="https://aku-ganteng-coy.github.io/okebos/daftardisini.webp" alt="MPO Twin Banner" class="banner">
-  </a>
-    </section>
-  </main>
+
+  <div class="container">
+    <a href="https://mtwin.link/telor" class="top-image">
+      <img src="mpotwin.png" alt="Gambar Link">
+    </a>
+
+    <div class="button-wrapper">
+      <a href="https://mtwin.link/telor" class="btn">MASUK</a>
+      <a href="https://mtwin.link/telor" class="btn">DAFTAR</a>
+    </div>
+  </div>
+
 </body>
 </html>
